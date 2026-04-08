@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900;
+  }
+}
+
+@layer components {
+  .grade-badge {
+    @apply inline-flex items-center justify-center font-mono font-bold text-xs px-2.5 py-1 rounded-md tracking-wide;
+  }
+
+  .stat-pill {
+    @apply inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1 text-xs font-medium text-slate-600;
+  }
+
+  .nav-link {
+    @apply text-sm font-medium text-slate-500 hover:text-navy-800 transition-colors duration-150 relative;
+  }
+
+  .nav-link.active {
+    @apply text-navy-800;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 right-0 h-0.5 bg-navy-700 rounded-full;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-navy-600;
+  }
+
+  .th-cell {
+    @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500 select-none;
+  }
+
+  .td-cell {
+    @apply px-4 py-4 text-sm text-slate-700;
+  }
+
+  .sortable:hover {
+    @apply text-navy-700 cursor-pointer;
+  }
+
+  .filter-pill {
+    @apply px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-150 cursor-pointer;
+  }
+
+  .filter-pill-inactive {
+    @apply bg-white border-slate-200 text-slate-500 hover:border-navy-400 hover:text-navy-700;
+  }
+
+  .filter-pill-active {
+    @apply bg-navy-800 border-navy-800 text-white;
+  }
+}
+
+/* Smooth table row hover */
+.rankings-table tbody tr {
+  transition: background-color 0.1s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #6080ff; }
